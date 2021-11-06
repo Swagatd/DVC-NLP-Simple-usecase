@@ -1,8 +1,10 @@
 import argparse
 import os
+from posixpath import split
 import shutil
 from tqdm import tqdm
 import logging
+import random
 from src.utils.common import read_yaml
 
 STAGE = "One"
@@ -16,8 +18,16 @@ logging.basicConfig(
     )
 
 def main(config_path,params_path):
+    ## converting XML data tsv
     config = read_yaml(config_path)
     params = read_yaml(params_path)
+
+    source_data = config["source_data"]
+    input_data = os.path.join(source_data["data_dir"],source_data["data_file"])
+
+    split = params["prepare"]["split"]
+    seed = params["prepare"]["seed"]
+    random.seed(seed)
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
