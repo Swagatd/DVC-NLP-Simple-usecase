@@ -5,7 +5,7 @@ import shutil
 from tqdm import tqdm
 import logging
 import random
-from src.utils.common import read_yaml
+from src.utils.common import read_yaml,create_directories
 
 STAGE = "One"
 
@@ -28,6 +28,11 @@ def main(config_path,params_path):
     split = params["prepare"]["split"]
     seed = params["prepare"]["seed"]
     random.seed(seed)
+
+    artifacts = config["artifacts"]
+    prepared_data_dir_path = os.path.join(artifacts["ARTIFACTS_DIR"],artifacts["PREPARED_DATA"])
+    create_directories([prepared_data_dir_path])
+
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
