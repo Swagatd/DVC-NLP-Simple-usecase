@@ -1,7 +1,7 @@
 import argparse
 import os
 import shutil
-from sklearn.metrics.ranking import roc_auc_score
+# from sklearn.metrics.ranking import roc_auc_score
 from tqdm import tqdm
 import logging
 from src.utils.common import read_yaml,save_json
