@@ -16,6 +16,13 @@ def create_directories(path_to_directories: list) -> None:
         os.makedirs(path,exist_ok=True)
         logging.info(f"created directory at: {path}")
 
+
+def save_json(path,data):
+    with open(path,"w") as f:
+        json.dump(data,f,indent=4)
+
+    logging.info(f"json file is saved at : {path}")
+
 def get_df(path_to_data: str, sep: str="\t") -> pd.DataFrame:
     df = pd.read_csv(
         path_to_data,
