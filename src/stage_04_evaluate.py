@@ -38,7 +38,7 @@ def main(config_path,params_path):
     X = matrix[:,2:]
 
     predictions_by_class = model.predict_proba(X)
-    predictions = predictions_by_class[:1]
+    predictions = predictions_by_class[:,1]
 
     PRC_json_path = config["plots"]["PRC"]
     PRC_json_path = config["plots"]["ROC"]
